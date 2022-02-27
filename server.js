@@ -73,8 +73,10 @@ app.get("/", async (req, res, next) => {
 app.get("/png", async (req, res, next) => {
   try {
     const result = await convertHtmlToPng(html);
+    console.log(result);
     return res.setHeader("content-type", "image/png").send(result);
   } catch (error) {
+    console.log(error);
     res.send(error);
   }
 });
